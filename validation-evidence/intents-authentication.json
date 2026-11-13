@@ -1,0 +1,40 @@
+{
+  "checked_at": "2026-11-13T10:40:46.820197+00:00",
+  "endpoint": "https://explorer.near-intents.org/api/v0/transactions",
+  "credential_loaded": true,
+  "start": "2026-11-09T12:00:00Z",
+  "end": "2026-11-09T12:01:00Z",
+  "http_events": [
+    {
+      "requested_at": "2026-11-13T10:40:46.820786+00:00",
+      "url": "https://explorer.near-intents.org/api/v0/transactions",
+      "parameters": {
+        "statuses": "SUCCESS",
+        "numberOfTransactions": 25,
+        "direction": "next",
+        "startTimestamp": "2026-11-09T11:59:59.999000+00:00",
+        "endTimestamp": "2026-11-09T12:01:00Z"
+      },
+      "attempt": 1,
+      "http_status": null,
+      "error_type": "ConnectionError",
+      "transport_error": "WinError 10013"
+    }
+  ],
+  "observations": null,
+  "authenticated_access_confirmed": false,
+  "pagination_complete": false,
+  "error_type": "SourceError",
+  "error": "HTTP transport failed (WinError 10013); no complete export",
+  "audit": {
+    "start": "2026-11-09T12:00:00Z",
+    "end": "2026-11-09T12:01:00Z",
+    "complete": false,
+    "pages_received": 0,
+    "rows_received": 0,
+    "unique_swaps": 0,
+    "duplicate_records": 0,
+    "timestamp_basis": "createdAt UTC; SUCCESS status at retrieval, not completion day",
+    "identity": "depositAddress + depositMemo"
+  }
+}

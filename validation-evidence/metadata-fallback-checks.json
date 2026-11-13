@@ -1,0 +1,28 @@
+{
+  "checked_at": "2026-11-12T21:30:37.185473+00:00",
+  "scope": "Code and synthetic fixture verification; no live BigQuery jobs submitted during this task",
+  "checks": [
+    {
+      "check": "pytest",
+      "exit_code": 0
+    },
+    {
+      "check": "compile",
+      "exit_code": 0
+    },
+    {
+      "check": "typecheck",
+      "exit_code": 0
+    },
+    {
+      "check": "build",
+      "exit_code": 1
+    },
+    {
+      "check": "vitest",
+      "exit_code": 1
+    }
+  ],
+  "live_extraction_verified": false,
+  "public_dashboard_sha256": "a58521305cfe318bb4e6371fa0eaeefc57d63a6809f0aed5f2fafb403323fdb2"
+}

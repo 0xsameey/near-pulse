@@ -1,0 +1,531 @@
+{
+  "started_at": "2026-11-13T12:00:20.182458+00:00",
+  "project": "falcora-test",
+  "location": "us-east1",
+  "include_contracts": false,
+  "dataset": "bigquery-public-data.crypto_near_mainnet_us",
+  "start": "2026-11-03",
+  "end": "2026-11-09",
+  "saved_schema_sha256": "619275be52bf8fa446645134ce1562957d1314dc3047dec804b3ba680e6a731c",
+  "execute_requested": true,
+  "status": "verified_and_exported",
+  "jobs": [
+    {
+      "sql": "-- Transaction-only metadata requires no contract-table access/coverage.\nSELECT table_name, partition_id, SUM(total_rows) AS total_rows,\n       SUM(total_logical_bytes) AS total_logical_bytes,\n       MAX(last_modified_time) AS last_modified_time\nFROM `bigquery-public-data.crypto_near_mainnet_us.INFORMATION_SCHEMA.PARTITIONS`\nWHERE table_name = 'transactions'\n  AND partition_id >= FORMAT_DATE('%Y%m%d', @start)\n  AND partition_id < FORMAT_DATE('%Y%m%d', @end)\nGROUP BY table_name, partition_id\nORDER BY table_name, partition_id\n",
+      "location": "us-east1",
+      "parameters": [
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-03"
+          },
+          "name": "start"
+        },
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-09"
+          },
+          "name": "end"
+        }
+      ],
+      "estimate_bytes": 10485760,
+      "dry_run_job_id": null,
+      "executed": true,
+      "job_id": "875a0e38-e01a-4312-a653-4a9419178dd6",
+      "maximum_bytes_billed": 100000000,
+      "actual_bytes": 10485760
+    },
+    {
+      "sql": "-- One source transaction row per signed transaction; includes all statuses.\n-- COUNT(*) must agree with the earlier transaction partition row metadata.\nSELECT block_date AS date, COUNT(*) AS transactions,\n       COUNT(DISTINCT signer_account_id) AS signers,\n       COUNTIF(signer_account_id IS NULL) AS missing_signers,\n       COUNT(DISTINCT EXTRACT(HOUR FROM block_timestamp_utc)) AS observed_hours\nFROM `bigquery-public-data.crypto_near_mainnet_us.transactions`\nWHERE block_date >= @start AND block_date < @end\nGROUP BY block_date\nORDER BY block_date\n",
+      "location": "us-east1",
+      "parameters": [
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-03"
+          },
+          "name": "start"
+        },
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-09"
+          },
+          "name": "end"
+        }
+      ],
+      "estimate_bytes": 151469784,
+      "dry_run_job_id": null,
+      "executed": false,
+      "rejected": "Dry-run estimate 151469784 bytes exceeds per-query limit 100000000 or remaining cumulative limit 900000000; execution rejected",
+      "metric": "transactions",
+      "sql_file": "verified_transactions.sql",
+      "start": "2026-11-03",
+      "end": "2026-11-09"
+    },
+    {
+      "sql": "-- One source transaction row per signed transaction; includes all statuses.\n-- COUNT(*) must agree with the earlier transaction partition row metadata.\nSELECT block_date AS date, COUNT(*) AS transactions,\n       COUNT(DISTINCT signer_account_id) AS signers,\n       COUNTIF(signer_account_id IS NULL) AS missing_signers,\n       COUNT(DISTINCT EXTRACT(HOUR FROM block_timestamp_utc)) AS observed_hours\nFROM `bigquery-public-data.crypto_near_mainnet_us.transactions`\nWHERE block_date >= @start AND block_date < @end\nGROUP BY block_date\nORDER BY block_date\n",
+      "location": "us-east1",
+      "parameters": [
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-03"
+          },
+          "name": "start"
+        },
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-05"
+          },
+          "name": "end"
+        }
+      ],
+      "estimate_bytes": 48085893,
+      "dry_run_job_id": null,
+      "executed": false,
+      "metric": "transactions",
+      "sql_file": "verified_transactions.sql",
+      "start": "2026-11-03",
+      "end": "2026-11-05"
+    },
+    {
+      "sql": "-- One source transaction row per signed transaction; includes all statuses.\n-- COUNT(*) must agree with the earlier transaction partition row metadata.\nSELECT block_date AS date, COUNT(*) AS transactions,\n       COUNT(DISTINCT signer_account_id) AS signers,\n       COUNTIF(signer_account_id IS NULL) AS missing_signers,\n       COUNT(DISTINCT EXTRACT(HOUR FROM block_timestamp_utc)) AS observed_hours\nFROM `bigquery-public-data.crypto_near_mainnet_us.transactions`\nWHERE block_date >= @start AND block_date < @end\nGROUP BY block_date\nORDER BY block_date\n",
+      "location": "us-east1",
+      "parameters": [
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-05"
+          },
+          "name": "start"
+        },
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-07"
+          },
+          "name": "end"
+        }
+      ],
+      "estimate_bytes": 57730581,
+      "dry_run_job_id": null,
+      "executed": false,
+      "metric": "transactions",
+      "sql_file": "verified_transactions.sql",
+      "start": "2026-11-05",
+      "end": "2026-11-07"
+    },
+    {
+      "sql": "-- One source transaction row per signed transaction; includes all statuses.\n-- COUNT(*) must agree with the earlier transaction partition row metadata.\nSELECT block_date AS date, COUNT(*) AS transactions,\n       COUNT(DISTINCT signer_account_id) AS signers,\n       COUNTIF(signer_account_id IS NULL) AS missing_signers,\n       COUNT(DISTINCT EXTRACT(HOUR FROM block_timestamp_utc)) AS observed_hours\nFROM `bigquery-public-data.crypto_near_mainnet_us.transactions`\nWHERE block_date >= @start AND block_date < @end\nGROUP BY block_date\nORDER BY block_date\n",
+      "location": "us-east1",
+      "parameters": [
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-07"
+          },
+          "name": "start"
+        },
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-09"
+          },
+          "name": "end"
+        }
+      ],
+      "estimate_bytes": 45653310,
+      "dry_run_job_id": null,
+      "executed": false,
+      "metric": "transactions",
+      "sql_file": "verified_transactions.sql",
+      "start": "2026-11-07",
+      "end": "2026-11-09"
+    },
+    {
+      "sql": "-- One source transaction row per signed transaction; includes all statuses.\n-- COUNT(*) must agree with the earlier transaction partition row metadata.\nSELECT block_date AS date, COUNT(*) AS transactions,\n       COUNT(DISTINCT signer_account_id) AS signers,\n       COUNTIF(signer_account_id IS NULL) AS missing_signers,\n       COUNT(DISTINCT EXTRACT(HOUR FROM block_timestamp_utc)) AS observed_hours\nFROM `bigquery-public-data.crypto_near_mainnet_us.transactions`\nWHERE block_date >= @start AND block_date < @end\nGROUP BY block_date\nORDER BY block_date\n",
+      "location": "us-east1",
+      "parameters": [
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-03"
+          },
+          "name": "start"
+        },
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-05"
+          },
+          "name": "end"
+        }
+      ],
+      "estimate_bytes": 48085893,
+      "dry_run_job_id": null,
+      "executed": true,
+      "job_id": "7201ca5f-943c-48a3-873a-7301c1a5590b",
+      "maximum_bytes_billed": 100000000,
+      "actual_bytes": 48085893,
+      "metric": "transactions"
+    },
+    {
+      "sql": "-- One source transaction row per signed transaction; includes all statuses.\n-- COUNT(*) must agree with the earlier transaction partition row metadata.\nSELECT block_date AS date, COUNT(*) AS transactions,\n       COUNT(DISTINCT signer_account_id) AS signers,\n       COUNTIF(signer_account_id IS NULL) AS missing_signers,\n       COUNT(DISTINCT EXTRACT(HOUR FROM block_timestamp_utc)) AS observed_hours\nFROM `bigquery-public-data.crypto_near_mainnet_us.transactions`\nWHERE block_date >= @start AND block_date < @end\nGROUP BY block_date\nORDER BY block_date\n",
+      "location": "us-east1",
+      "parameters": [
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-05"
+          },
+          "name": "start"
+        },
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-07"
+          },
+          "name": "end"
+        }
+      ],
+      "estimate_bytes": 57730581,
+      "dry_run_job_id": null,
+      "executed": true,
+      "job_id": "55568580-279f-4c1d-8142-01fc3bd114bd",
+      "maximum_bytes_billed": 100000000,
+      "actual_bytes": 57730581,
+      "metric": "transactions"
+    },
+    {
+      "sql": "-- One source transaction row per signed transaction; includes all statuses.\n-- COUNT(*) must agree with the earlier transaction partition row metadata.\nSELECT block_date AS date, COUNT(*) AS transactions,\n       COUNT(DISTINCT signer_account_id) AS signers,\n       COUNTIF(signer_account_id IS NULL) AS missing_signers,\n       COUNT(DISTINCT EXTRACT(HOUR FROM block_timestamp_utc)) AS observed_hours\nFROM `bigquery-public-data.crypto_near_mainnet_us.transactions`\nWHERE block_date >= @start AND block_date < @end\nGROUP BY block_date\nORDER BY block_date\n",
+      "location": "us-east1",
+      "parameters": [
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-07"
+          },
+          "name": "start"
+        },
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-09"
+          },
+          "name": "end"
+        }
+      ],
+      "estimate_bytes": 45653310,
+      "dry_run_job_id": null,
+      "executed": true,
+      "job_id": "b7b4e7a5-e4ba-46ee-a396-e5f7bb9957a1",
+      "maximum_bytes_billed": 100000000,
+      "actual_bytes": 45653310,
+      "metric": "transactions"
+    }
+  ],
+  "metrics": [
+    {
+      "date": "2026-11-03",
+      "transactions": 597189,
+      "signers": 72343,
+      "contracts": null
+    },
+    {
+      "date": "2026-11-04",
+      "transactions": 706690,
+      "signers": 79164,
+      "contracts": null
+    },
+    {
+      "date": "2026-11-05",
+      "transactions": 848794,
+      "signers": 78560,
+      "contracts": null
+    },
+    {
+      "date": "2026-11-06",
+      "transactions": 717484,
+      "signers": 78574,
+      "contracts": null
+    },
+    {
+      "date": "2026-11-07",
+      "transactions": 682432,
+      "signers": 77076,
+      "contracts": null
+    },
+    {
+      "date": "2026-11-08",
+      "transactions": 609504,
+      "signers": 79184,
+      "contracts": null
+    }
+  ],
+  "completeness_policy": "Elapsed UTC days; positive executed daily table counts; 24-hour coverage; partition row-count comparison when metadata is accessible. Only a specific metadata-view 403 permits omission of that comparison. This does not prove absence of upstream indexing omissions.",
+  "schema": {
+    "transactions": {
+      "schema": [
+        {
+          "name": "block_date",
+          "type": "DATE",
+          "mode": "NULLABLE",
+          "description": "The date of the Block. Used to partition the table"
+        },
+        {
+          "name": "block_height",
+          "type": "INTEGER",
+          "mode": "NULLABLE",
+          "description": "The height of the Block"
+        },
+        {
+          "name": "block_timestamp",
+          "type": "INTEGER",
+          "mode": "NULLABLE",
+          "description": "The timestamp of the Block in nanoseconds"
+        },
+        {
+          "name": "block_timestamp_utc",
+          "type": "TIMESTAMP",
+          "mode": "NULLABLE",
+          "description": "The timestamp of the Block in UTC"
+        },
+        {
+          "name": "block_hash",
+          "type": "STRING",
+          "mode": "NULLABLE",
+          "description": "The hash of the Block"
+        },
+        {
+          "name": "chunk_hash",
+          "type": "STRING",
+          "mode": "NULLABLE",
+          "description": "The hash of the Chunk"
+        },
+        {
+          "name": "shard_id",
+          "type": "INTEGER",
+          "mode": "NULLABLE",
+          "description": "The shard ID of the Chunk"
+        },
+        {
+          "name": "transaction_hash",
+          "type": "STRING",
+          "mode": "NULLABLE",
+          "description": "The transaction hash"
+        },
+        {
+          "name": "index_in_chunk",
+          "type": "INTEGER",
+          "mode": "NULLABLE",
+          "description": "The index in the Chunk"
+        },
+        {
+          "name": "signer_account_id",
+          "type": "STRING",
+          "mode": "NULLABLE",
+          "description": "An account on which behalf transaction is signed"
+        },
+        {
+          "name": "signer_public_key",
+          "type": "STRING",
+          "mode": "NULLABLE",
+          "description": "An access key which was used to sign a transaction"
+        },
+        {
+          "name": "nonce",
+          "type": "INTEGER",
+          "mode": "NULLABLE",
+          "description": "Nonce is used to determine order of transaction in the pool. It increments for a combination of `signer_id` and `public_key`"
+        },
+        {
+          "name": "receiver_account_id",
+          "type": "STRING",
+          "mode": "NULLABLE",
+          "description": "Receiver account for this transaction"
+        },
+        {
+          "name": "signature",
+          "type": "STRING",
+          "mode": "NULLABLE",
+          "description": "A signature of a hash of the Borsh-serialized Transaction"
+        },
+        {
+          "name": "status",
+          "type": "STRING",
+          "mode": "NULLABLE",
+          "description": "Transaction status"
+        },
+        {
+          "name": "converted_into_receipt_id",
+          "type": "STRING",
+          "mode": "NULLABLE",
+          "description": "Receipt ID that the transaction was converted."
+        },
+        {
+          "name": "receipt_conversion_gas_burnt",
+          "type": "INTEGER",
+          "mode": "NULLABLE",
+          "description": "Gas burnt in the receipt conversion"
+        },
+        {
+          "name": "receipt_conversion_tokens_burnt",
+          "type": "FLOAT",
+          "mode": "NULLABLE",
+          "description": "Tokens burnt in the receipt conversion"
+        }
+      ],
+      "time_partitioning": {
+        "type": "DAY",
+        "field": "block_date"
+      },
+      "range_partitioning": null
+    }
+  },
+  "query_strategy": {
+    "transactions_and_signers": "One exact daily aggregate over the same transaction columns; no distinct-count summation across subsets",
+    "function_calls": "Not requested; missing values remain null",
+    "coverage_consistency": "Receipt row totals must agree between both executed column-specific queries",
+    "range_fallback": "Rejected windows try two-day spans, then one day; a single-day rejection remains fatal"
+  },
+  "partition_verification": {
+    "mode": "partition_metadata",
+    "status": "validated",
+    "data_observed_at": "2026-11-13T12:00:37.265717+00:00"
+  },
+  "partitions": [
+    {
+      "table_name": "transactions",
+      "partition_id": "20261103",
+      "total_rows": 597189,
+      "total_logical_bytes": 281631743,
+      "last_modified_time": "2026-11-04 00:07:24.145000+00:00"
+    },
+    {
+      "table_name": "transactions",
+      "partition_id": "20261104",
+      "total_rows": 706690,
+      "total_logical_bytes": 332267050,
+      "last_modified_time": "2026-11-05 00:08:15.004000+00:00"
+    },
+    {
+      "table_name": "transactions",
+      "partition_id": "20261105",
+      "total_rows": 848794,
+      "total_logical_bytes": 398969695,
+      "last_modified_time": "2026-11-06 00:07:28.252000+00:00"
+    },
+    {
+      "table_name": "transactions",
+      "partition_id": "20261106",
+      "total_rows": 717484,
+      "total_logical_bytes": 339811725,
+      "last_modified_time": "2026-11-07 00:07:22.498000+00:00"
+    },
+    {
+      "table_name": "transactions",
+      "partition_id": "20261107",
+      "total_rows": 682432,
+      "total_logical_bytes": 319284539,
+      "last_modified_time": "2026-11-08 00:07:09.753000+00:00"
+    },
+    {
+      "table_name": "transactions",
+      "partition_id": "20261108",
+      "total_rows": 609504,
+      "total_logical_bytes": 285472406,
+      "last_modified_time": "2026-11-09 00:07:15.254000+00:00"
+    }
+  ],
+  "partitions_observed_at": "2026-11-13T12:00:29.588497+00:00",
+  "planned_data_jobs": 3,
+  "planned_maximum_bytes": 400000000,
+  "contract_coverage": [],
+  "consistency_checks": [
+    {
+      "date": "2026-11-03",
+      "transactions_match_partition_rows": true,
+      "receipt_actions_match_partition_rows": null,
+      "availability_basis": "partition_metadata_and_executed_bounded_queries",
+      "observed_hours": 24
+    },
+    {
+      "date": "2026-11-04",
+      "transactions_match_partition_rows": true,
+      "receipt_actions_match_partition_rows": null,
+      "availability_basis": "partition_metadata_and_executed_bounded_queries",
+      "observed_hours": 24
+    },
+    {
+      "date": "2026-11-05",
+      "transactions_match_partition_rows": true,
+      "receipt_actions_match_partition_rows": null,
+      "availability_basis": "partition_metadata_and_executed_bounded_queries",
+      "observed_hours": 24
+    },
+    {
+      "date": "2026-11-06",
+      "transactions_match_partition_rows": true,
+      "receipt_actions_match_partition_rows": null,
+      "availability_basis": "partition_metadata_and_executed_bounded_queries",
+      "observed_hours": 24
+    },
+    {
+      "date": "2026-11-07",
+      "transactions_match_partition_rows": true,
+      "receipt_actions_match_partition_rows": null,
+      "availability_basis": "partition_metadata_and_executed_bounded_queries",
+      "observed_hours": 24
+    },
+    {
+      "date": "2026-11-08",
+      "transactions_match_partition_rows": true,
+      "receipt_actions_match_partition_rows": null,
+      "availability_basis": "partition_metadata_and_executed_bounded_queries",
+      "observed_hours": 24
+    }
+  ],
+  "merged_coverage": [
+    {
+      "start": "2026-11-03T00:00:00+00:00",
+      "end": "2026-11-10T00:00:00+00:00"
+    }
+  ],
+  "reserved_bytes": 400000000,
+  "completed_at": "2026-11-13T12:00:42.200030+00:00"
+}

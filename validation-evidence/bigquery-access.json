@@ -1,0 +1,8 @@
+{
+  "source": "BigQuery table metadata REST probe (not INFORMATION_SCHEMA, not SQL)",
+  "url": "https://bigquery.googleapis.com/bigquery/v2/projects/bigquery-public-data/datasets/crypto_near_mainnet_us/tables/transactions?fields=tableReference,schema,timePartitioning,lastModifiedTime",
+  "retrieved_at": "2026-11-12T15:16:16.033259+00:00",
+  "authenticated": false,
+  "error_type": "URLError",
+  "error": "<urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>"
+}

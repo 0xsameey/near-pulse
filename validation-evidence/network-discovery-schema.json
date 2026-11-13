@@ -1,0 +1,280 @@
+{
+  "transactions": {
+    "schema": [
+      {
+        "name": "block_date",
+        "type": "DATE",
+        "mode": "NULLABLE",
+        "description": "The date of the Block. Used to partition the table"
+      },
+      {
+        "name": "block_height",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "The height of the Block"
+      },
+      {
+        "name": "block_timestamp",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "The timestamp of the Block in nanoseconds"
+      },
+      {
+        "name": "block_timestamp_utc",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE",
+        "description": "The timestamp of the Block in UTC"
+      },
+      {
+        "name": "block_hash",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "The hash of the Block"
+      },
+      {
+        "name": "chunk_hash",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "The hash of the Chunk"
+      },
+      {
+        "name": "shard_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "The shard ID of the Chunk"
+      },
+      {
+        "name": "transaction_hash",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "The transaction hash"
+      },
+      {
+        "name": "index_in_chunk",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "The index in the Chunk"
+      },
+      {
+        "name": "signer_account_id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "An account on which behalf transaction is signed"
+      },
+      {
+        "name": "signer_public_key",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "An access key which was used to sign a transaction"
+      },
+      {
+        "name": "nonce",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "Nonce is used to determine order of transaction in the pool. It increments for a combination of `signer_id` and `public_key`"
+      },
+      {
+        "name": "receiver_account_id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Receiver account for this transaction"
+      },
+      {
+        "name": "signature",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "A signature of a hash of the Borsh-serialized Transaction"
+      },
+      {
+        "name": "status",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Transaction status"
+      },
+      {
+        "name": "converted_into_receipt_id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Receipt ID that the transaction was converted."
+      },
+      {
+        "name": "receipt_conversion_gas_burnt",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "Gas burnt in the receipt conversion"
+      },
+      {
+        "name": "receipt_conversion_tokens_burnt",
+        "type": "FLOAT",
+        "mode": "NULLABLE",
+        "description": "Tokens burnt in the receipt conversion"
+      }
+    ],
+    "time_partitioning": {
+      "type": "DAY",
+      "field": "block_date"
+    },
+    "range_partitioning": null
+  },
+  "receipt_actions": {
+    "schema": [
+      {
+        "name": "block_date",
+        "type": "DATE",
+        "mode": "NULLABLE",
+        "description": "The date of the Block. Used to partition the table"
+      },
+      {
+        "name": "block_height",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "The height of the Block"
+      },
+      {
+        "name": "block_timestamp",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "The timestamp of the Block in nanoseconds"
+      },
+      {
+        "name": "block_timestamp_utc",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE",
+        "description": "The timestamp of the Block in UTC"
+      },
+      {
+        "name": "block_hash",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "The hash of the Block"
+      },
+      {
+        "name": "chunk_hash",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "The hash of the Chunk"
+      },
+      {
+        "name": "shard_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "The shard ID of the Chunk"
+      },
+      {
+        "name": "index_in_action_receipt",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "The index in the ACTION receipt"
+      },
+      {
+        "name": "receipt_id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "An unique id for the receipt"
+      },
+      {
+        "name": "gas_price",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "The gas fee"
+      },
+      {
+        "name": "signer_account_id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "An account on which behalf the origin transaction is signed"
+      },
+      {
+        "name": "signer_public_key",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "An access key which was used to sign the origin transaction"
+      },
+      {
+        "name": "args",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Arguments"
+      },
+      {
+        "name": "receipt_predecessor_account_id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "The account ID which issued a receipt. In case of a gas or deposit refund, the account ID is system"
+      },
+      {
+        "name": "action_kind",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "The action kind: ADD_KEY, CREATE_ACCOUNT\t, DELEGATE_ACTION, DELETE_ACCOUNT, DELETE_KEY, DEPLOY_CONTRACT, FUNCTION_CALL, STAKE, TRANSFER"
+      },
+      {
+        "name": "receipt_receiver_account_id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "The destination account ID"
+      },
+      {
+        "name": "is_delegate_action",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE",
+        "description": "Flag for delegate action"
+      }
+    ],
+    "time_partitioning": {
+      "type": "DAY",
+      "field": "block_date"
+    },
+    "range_partitioning": null
+  },
+  "receipt_origin_transaction": {
+    "schema": [
+      {
+        "name": "block_date",
+        "type": "DATE",
+        "mode": "NULLABLE",
+        "description": "The date of the Block. Used to partition the table"
+      },
+      {
+        "name": "block_height",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "The height of the Block"
+      },
+      {
+        "name": "receipt_kind",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "There are 2 types of Receipt: ACTION and DATA. An ACTION receipt is a request to apply Actions, while a DATA receipt is a result of the application of these actions"
+      },
+      {
+        "name": "receipt_id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "An unique id for the receipt"
+      },
+      {
+        "name": "data_id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "An unique DATA receipt identifier"
+      },
+      {
+        "name": "originated_from_transaction_hash",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "The transaction hash that originated the receipt"
+      },
+      {
+        "name": "_record_last_updated_utc",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+      }
+    ],
+    "time_partitioning": {
+      "type": "DAY",
+      "field": "block_date"
+    },
+    "range_partitioning": null
+  }
+}

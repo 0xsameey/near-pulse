@@ -1,0 +1,36 @@
+{
+  "created_at": "2026-11-12T15:19:40.908167+00:00",
+  "kind": "validation artifacts, not observed metric datasets",
+  "files": [
+    {
+      "path": ".env.example",
+      "bytes": 291,
+      "sha256": "ea9f1b792d3c53b00752f80105cc9d364cbc27562972393168141ca24124c475"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 116,
+      "sha256": "b43f5f66751e4e02a085ef2e324ae2ed3b155ac43611821179950d5b59877457"
+    },
+    {
+      "path": "README.md",
+      "bytes": 9578,
+      "sha256": "3cf9cb82b1f4182b45fdaf35585324c98396504f858ef8cdea9d1da8afc26a44"
+    },
+    {
+      "path": "validation-evidence/bigquery-access.json",
+      "bytes": 533,
+      "sha256": "80795df05fff446d05c848b502f336a4b6bf39f8510b7bed3f3242a19dae6764"
+    },
+    {
+      "path": "validation-evidence/intents-access.json",
+      "bytes": 603,
+      "sha256": "694b9251ab59f932e1645aa835bf5ce396a38e53c6dcb513ba6c2321ac6a63aa"
+    },
+    {
+      "path": "VALIDATION.md",
+      "bytes": 10654,
+      "sha256": "86621347d1c87e9653c4a6bf7f00b6eaca4e06e15c2472807faddcbe3945e92a"
+    }
+  ]
+}

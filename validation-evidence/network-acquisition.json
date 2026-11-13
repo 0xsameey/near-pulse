@@ -1,0 +1,58 @@
+{
+  "checked_at": "2026-11-12T20:47:08.373939+00:00",
+  "project": "falcora-test",
+  "dataset": "bigquery-public-data.crypto_near_mainnet_us",
+  "configured_project": "falcora-test",
+  "configured_max_bytes": "100000000",
+  "configured_total_bytes": "1000000000",
+  "adc_file_candidates_checked": 1,
+  "adc_file_found": false,
+  "credential_env_configured": false,
+  "gcloud_on_path": false,
+  "bq_on_path": false,
+  "gcloud_standard_install_found": true,
+  "live_metadata_requests": 0,
+  "dry_runs": 0,
+  "executed_queries": 0,
+  "job_ids": [],
+  "observed_dates": [],
+  "actual_bytes_processed": null,
+  "status": "blocked_before_authentication",
+  "blockers": [
+    "Python google-cloud-bigquery/google-auth unavailable",
+    "No ADC file found in configured or standard Windows locations",
+    "pip dependency installation failed: no matching distribution available in execution environment"
+  ],
+  "console_query_success": "Reported by user; not evidence of local ADC",
+  "adc_refresh_exit": 1,
+  "access_token_obtained": false,
+  "gcloud_location": "C:\\Users\\PC\\AppData\\Local\\Google\\Cloud SDK\\google-cloud-sdk\\bin\\gcloud.cmd",
+  "adc_error": "WARNING: Could not setup log file in C:\\Users\\PC\\AppData\\Roaming\\gcloud\\logs, (PermissionError: [Errno 13] Permission denied: 'C:\\\\Users\\\\PC\\\\AppData\\\\Roaming\\\\gcloud\\\\logs\\\\2026.11.12\\\\21.47.48.652301.log'.\nThe configuration directory may not be writable. To learn more, see https://cloud.google.com/sdk/docs/configurations#creating_a_configuration\nERROR: (gcloud.auth.application-default.print-access-token) Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information.",
+  "checks": [
+    {
+      "check": "python_unittest",
+      "exit_code": 0
+    },
+    {
+      "check": "python_compile",
+      "exit_code": 0
+    },
+    {
+      "check": "pytest",
+      "exit_code": 1
+    },
+    {
+      "check": "typecheck",
+      "exit_code": 0
+    },
+    {
+      "check": "build",
+      "exit_code": 1
+    },
+    {
+      "check": "vitest",
+      "exit_code": 1
+    }
+  ],
+  "checks_completed_at": "2026-11-12T20:49:36.211879+00:00"
+}

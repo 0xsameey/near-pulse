@@ -1,0 +1,23 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+node_modules/
+dist/
+credentials*.json
+*service-account*.json
+.verification/
+.pytest_cache/
+*.tsbuildinfo
+coverage/
+artifacts/
+.npm-cache/
+data/schema.json
+data/query-jobs.json
+data/.history.lock
+# Raw exports require human review of redistribution terms before committing.
+data/raw/*.json
+data/raw/intents-responses/
+data/raw/history/
+!data/raw/README.md

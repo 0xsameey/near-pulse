@@ -1,0 +1,10 @@
+{
+  "url": "https://explorer.near-intents.org/api/v0/transactions?numberOfTransactions=1&statuses=SUCCESS&startTimestamp=2026-03-23T00%3A00%3A00Z&endTimestamp=2026-03-24T00%3A00%3A00Z",
+  "retrieved_at": "2026-11-12T15:15:33.922409+00:00",
+  "authenticated": false,
+  "error_type": "URLError",
+  "error": "<urlopen error [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions>",
+  "http_status": null,
+  "rows_retrieved": null,
+  "note": "Recorded from observed local probe output; no response body received. Web-tool fallback also inaccessible."
+}

@@ -1,0 +1,200 @@
+{
+  "source_report": "validation-evidence/network-three-day.json",
+  "source_report_sha256": "7620b3b24bfb90c768789c847fa93adcf8f4142539f49ed382c9ada92b4e5374",
+  "failed_metric": "contract_function_calls",
+  "start": "2026-11-09",
+  "end": "2026-11-10",
+  "estimate_bytes": 124777675,
+  "location": "us-east1",
+  "sql": "-- Table-row/action grain, NOT receipt count, transaction count or successful calls.\n-- No joins: each FUNCTION_CALL receipt-action row is counted once, including\n-- delegated action rows where exposed by this source; no inferred deduplication.\nSELECT block_date AS date,\n       COUNTIF(action_kind = @action) AS contracts,\n       COUNT(*) AS receipt_action_rows,\n       COUNTIF(action_kind IS NULL) AS missing_action_kinds,\n       COUNT(DISTINCT EXTRACT(HOUR FROM block_timestamp_utc)) AS observed_hours\nFROM `bigquery-public-data.crypto_near_mainnet_us.receipt_actions`\nWHERE block_date >= @start AND block_date < @end\nGROUP BY block_date\nORDER BY block_date\n",
+  "executed": false,
+  "evidence_kind": "Saved local authenticated query report; no new live query made by this analysis",
+  "prior_dry_runs": [
+    {
+      "estimate_bytes": 102096417,
+      "parameters": [
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-09"
+          },
+          "name": "start"
+        },
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-12"
+          },
+          "name": "end"
+        }
+      ],
+      "sql": "-- One source transaction row per signed transaction; includes all statuses.\n-- COUNT(*) must agree with the earlier transaction partition row metadata.\nSELECT block_date AS date, COUNT(*) AS transactions,\n       COUNTIF(signer_account_id IS NULL) AS missing_signers,\n       COUNT(DISTINCT EXTRACT(HOUR FROM block_timestamp_utc)) AS observed_hours\nFROM `bigquery-public-data.crypto_near_mainnet_us.transactions`\nWHERE block_date >= @start AND block_date < @end\nGROUP BY block_date\nORDER BY block_date\n"
+    },
+    {
+      "estimate_bytes": 30890911,
+      "parameters": [
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-09"
+          },
+          "name": "start"
+        },
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-10"
+          },
+          "name": "end"
+        }
+      ],
+      "sql": "-- One source transaction row per signed transaction; includes all statuses.\n-- COUNT(*) must agree with the earlier transaction partition row metadata.\nSELECT block_date AS date, COUNT(*) AS transactions,\n       COUNTIF(signer_account_id IS NULL) AS missing_signers,\n       COUNT(DISTINCT EXTRACT(HOUR FROM block_timestamp_utc)) AS observed_hours\nFROM `bigquery-public-data.crypto_near_mainnet_us.transactions`\nWHERE block_date >= @start AND block_date < @end\nGROUP BY block_date\nORDER BY block_date\n"
+    },
+    {
+      "estimate_bytes": 39072245,
+      "parameters": [
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-10"
+          },
+          "name": "start"
+        },
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-11"
+          },
+          "name": "end"
+        }
+      ],
+      "sql": "-- One source transaction row per signed transaction; includes all statuses.\n-- COUNT(*) must agree with the earlier transaction partition row metadata.\nSELECT block_date AS date, COUNT(*) AS transactions,\n       COUNTIF(signer_account_id IS NULL) AS missing_signers,\n       COUNT(DISTINCT EXTRACT(HOUR FROM block_timestamp_utc)) AS observed_hours\nFROM `bigquery-public-data.crypto_near_mainnet_us.transactions`\nWHERE block_date >= @start AND block_date < @end\nGROUP BY block_date\nORDER BY block_date\n"
+    },
+    {
+      "estimate_bytes": 32133261,
+      "parameters": [
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-11"
+          },
+          "name": "start"
+        },
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-12"
+          },
+          "name": "end"
+        }
+      ],
+      "sql": "-- One source transaction row per signed transaction; includes all statuses.\n-- COUNT(*) must agree with the earlier transaction partition row metadata.\nSELECT block_date AS date, COUNT(*) AS transactions,\n       COUNTIF(signer_account_id IS NULL) AS missing_signers,\n       COUNT(DISTINCT EXTRACT(HOUR FROM block_timestamp_utc)) AS observed_hours\nFROM `bigquery-public-data.crypto_near_mainnet_us.transactions`\nWHERE block_date >= @start AND block_date < @end\nGROUP BY block_date\nORDER BY block_date\n"
+    },
+    {
+      "estimate_bytes": 80039585,
+      "parameters": [
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-09"
+          },
+          "name": "start"
+        },
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-12"
+          },
+          "name": "end"
+        }
+      ],
+      "sql": "-- Signing accounts are not unique humans. Do not sum distinct counts by shard.\nSELECT block_date AS date, COUNT(DISTINCT signer_account_id) AS signers\nFROM `bigquery-public-data.crypto_near_mainnet_us.transactions`\nWHERE block_date >= @start AND block_date < @end\nGROUP BY block_date\nORDER BY block_date\n"
+    },
+    {
+      "estimate_bytes": 378608723,
+      "parameters": [
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-09"
+          },
+          "name": "start"
+        },
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-12"
+          },
+          "name": "end"
+        },
+        {
+          "parameterType": {
+            "type": "STRING"
+          },
+          "parameterValue": {
+            "value": "FUNCTION_CALL"
+          },
+          "name": "action"
+        }
+      ],
+      "sql": "-- Table-row/action grain, NOT receipt count, transaction count or successful calls.\n-- No joins: each FUNCTION_CALL receipt-action row is counted once, including\n-- delegated action rows where exposed by this source; no inferred deduplication.\nSELECT block_date AS date,\n       COUNTIF(action_kind = @action) AS contracts,\n       COUNT(*) AS receipt_action_rows,\n       COUNTIF(action_kind IS NULL) AS missing_action_kinds,\n       COUNT(DISTINCT EXTRACT(HOUR FROM block_timestamp_utc)) AS observed_hours\nFROM `bigquery-public-data.crypto_near_mainnet_us.receipt_actions`\nWHERE block_date >= @start AND block_date < @end\nGROUP BY block_date\nORDER BY block_date\n"
+    },
+    {
+      "estimate_bytes": 124777675,
+      "parameters": [
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-09"
+          },
+          "name": "start"
+        },
+        {
+          "parameterType": {
+            "type": "DATE"
+          },
+          "parameterValue": {
+            "value": "2026-11-10"
+          },
+          "name": "end"
+        },
+        {
+          "parameterType": {
+            "type": "STRING"
+          },
+          "parameterValue": {
+            "value": "FUNCTION_CALL"
+          },
+          "name": "action"
+        }
+      ],
+      "sql": "-- Table-row/action grain, NOT receipt count, transaction count or successful calls.\n-- No joins: each FUNCTION_CALL receipt-action row is counted once, including\n-- delegated action rows where exposed by this source; no inferred deduplication.\nSELECT block_date AS date,\n       COUNTIF(action_kind = @action) AS contracts,\n       COUNT(*) AS receipt_action_rows,\n       COUNTIF(action_kind IS NULL) AS missing_action_kinds,\n       COUNT(DISTINCT EXTRACT(HOUR FROM block_timestamp_utc)) AS observed_hours\nFROM `bigquery-public-data.crypto_near_mainnet_us.receipt_actions`\nWHERE block_date >= @start AND block_date < @end\nGROUP BY block_date\nORDER BY block_date\n"
+    }
+  ]
+}

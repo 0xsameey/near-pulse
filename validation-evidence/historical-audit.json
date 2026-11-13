@@ -1,0 +1,116 @@
+{
+  "network": [
+    {
+      "date": "2026-11-03",
+      "transactions": 597189,
+      "signers": 72343,
+      "contracts": null
+    },
+    {
+      "date": "2026-11-04",
+      "transactions": 706690,
+      "signers": 79164,
+      "contracts": null
+    },
+    {
+      "date": "2026-11-05",
+      "transactions": 848794,
+      "signers": 78560,
+      "contracts": null
+    },
+    {
+      "date": "2026-11-06",
+      "transactions": 717484,
+      "signers": 78574,
+      "contracts": null
+    },
+    {
+      "date": "2026-11-07",
+      "transactions": 682432,
+      "signers": 77076,
+      "contracts": null
+    },
+    {
+      "date": "2026-11-08",
+      "transactions": 609504,
+      "signers": 79184,
+      "contracts": null
+    },
+    {
+      "date": "2026-11-09",
+      "transactions": 895302,
+      "signers": 77752,
+      "contracts": 1649268
+    }
+  ],
+  "intents": [
+    {
+      "date": "2026-11-03",
+      "swaps": 20368,
+      "volume": "40824696.933523208696"
+    },
+    {
+      "date": "2026-11-04",
+      "swaps": 20380,
+      "volume": "48328443.134579936990"
+    },
+    {
+      "date": "2026-11-05",
+      "swaps": 21017,
+      "volume": "39343933.940666966662"
+    },
+    {
+      "date": "2026-11-06",
+      "swaps": 20197,
+      "volume": "35818504.685551398074"
+    },
+    {
+      "date": "2026-11-07",
+      "swaps": 17300,
+      "volume": "29084781.888028374726"
+    },
+    {
+      "date": "2026-11-08",
+      "swaps": 14651,
+      "volume": "26301194.025156277767"
+    },
+    {
+      "date": "2026-11-09",
+      "swaps": 20243,
+      "volume": "43331710.006694590507"
+    }
+  ],
+  "successful_swaps": 134156,
+  "input_volume_usd": "263033264.614200753422",
+  "duplicate_swaps": 0,
+  "source_hashes": {
+    "network": "da47aab7cbf91b4add31e32c7415ccd467806bfa6a89e9276f2627df6144134a",
+    "intents": "826ea88889963ac5f891b9d339ebc7cf655df54542010440c1a85c7cf5200e45"
+  },
+  "response_pages_verified": 137,
+  "november_9_archives_preserved": true,
+  "network_recovery_needed": false,
+  "audit_method": "Offline source and response SHA-256 validation, stable identity uniqueness, archived record equality; no acquisition jobs run",
+  "research_coverage": {
+    "adoption": {
+      "start": "2026-11-03",
+      "end": "2026-11-09",
+      "observations": 7
+    },
+    "native_and_intents": {
+      "start": "2026-11-09",
+      "end": "2026-11-09",
+      "observations": 1
+    },
+    "verdict_required": {
+      "start": null,
+      "end": null,
+      "observations": 0
+    },
+    "paired_daily_changes": 6
+  },
+  "verdict": "Insufficient data",
+  "dashboard_and_csv_reconciled": true,
+  "original_response_records_reconciled": true,
+  "raw_response_duplicate_swaps": 0
+}

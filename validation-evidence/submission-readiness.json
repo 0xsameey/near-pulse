@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-13",
+  "release": "Final local submission preparation",
+  "public_window": {
+    "start": "2026-11-03",
+    "end_inclusive": "2026-11-09"
+  },
+  "contracts_dates": [
+    "2026-11-09"
+  ],
+  "swaps": 134156,
+  "input_volume_usd": "263033264.614200753422",
+  "verdict": "Insufficient data",
+  "paired_daily_changes": 6,
+  "minimum_pairs": 30,
+  "price": {
+    "private_probe": "user-reported authenticated success",
+    "samples": 168,
+    "missing_days": 0,
+    "published": false,
+    "rights_confirmed": false
+  },
+  "checks": {
+    "pytest": 111,
+    "pytest_subtests": 17,
+    "vitest": 20,
+    "typecheck": "passed",
+    "production_build": "passed",
+    "compileall": "passed",
+    "five_pages": "render tests and desktop navigation passed",
+    "mobile": "375px partial viewport inspected",
+    "console": "extension warnings visible; no app error seen in inspected state",
+    "isolated_source_archive_replay": "passed",
+    "static_archive_dashboard_match": "passed"
+  },
+  "ready": {
+    "local_demo": true,
+    "static_package": true,
+    "submitted": false
+  },
+  "remaining": [
+    "public repository authorization and publication",
+    "human video and X demo URL",
+    "reciprocal Sentinel disclosure confirmation",
+    "human details, contact consent and exact payload approval",
+    "recommended complete mobile and extension-free browser review",
+    "large replay input public delivery: Git LFS or actual linked release asset"
+  ],
+  "artifact_manifest": "artifacts/manifest.json",
+  "raw_intents_bytes": 241138717
+}

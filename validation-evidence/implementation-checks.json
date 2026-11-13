@@ -1,0 +1,47 @@
+{
+  "checked_at": "2026-11-12T16:13:16.771000+00:00",
+  "results": [
+    {
+      "check": "python_unittest",
+      "exit_code": 0,
+      "log_sha256": "9141126b230b71c6d7982009696c11883025613c45362b900656e75d80236024"
+    },
+    {
+      "check": "python_compile",
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "check": "strict_replay",
+      "exit_code": 2,
+      "log_sha256": "1adc6890f84f0596ebea605ee9d1d96f4879db82d616681c050462f617e0884c"
+    },
+    {
+      "check": "partial_replay",
+      "exit_code": 0,
+      "log_sha256": "1adc6890f84f0596ebea605ee9d1d96f4879db82d616681c050462f617e0884c"
+    },
+    {
+      "check": "pytest",
+      "exit_code": 1,
+      "log_sha256": "73b582e361aa7e7867141919287669bd86dd4f6720b9e787293312f899bd9fdc"
+    },
+    {
+      "check": "typecheck",
+      "exit_code": 1,
+      "log_sha256": "d4fb9dcb31ff0bbb84a79c4aa06bc78d4381327b7781d1f30a810df1a1cbb219"
+    },
+    {
+      "check": "build",
+      "exit_code": 1,
+      "log_sha256": "e4d9bcccda7d1a04b417a74df33a31a926beac1ee4ddc1163f0c407d3b3009ef"
+    },
+    {
+      "check": "vitest",
+      "exit_code": 1,
+      "log_sha256": "ee7c7348c57394981cfff66ecb989e56300177e4be4b8585b9dea90f5bf412fe"
+    }
+  ],
+  "authenticated_live_verification": false,
+  "browser_qa_performed": false
+}

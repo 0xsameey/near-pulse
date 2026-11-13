@@ -1,0 +1,17 @@
+{
+  "checked_at": "2026-11-13T10:53:58.105465+00:00",
+  "pytest": {
+    "passed": 94,
+    "subtests_passed": 17
+  },
+  "python_compile": "passed",
+  "typescript_typecheck": "passed",
+  "vitest": "config loading blocked by esbuild filesystem access denied",
+  "production_build": "config loading blocked by esbuild filesystem access denied",
+  "managed_outputs_contain_credential": false,
+  "public_dashboard_unchanged": true,
+  "public_dashboard_sha256": "9110f78ede805fe5073c84e9670998f64c011e9b97816dd2401496e7702fa336",
+  "authenticated_explorer_response_observed": false,
+  "intents_dataset_published": false,
+  "bigquery_cost_limits_changed": false
+}
